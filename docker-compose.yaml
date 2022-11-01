@@ -1,0 +1,50 @@
+version: '3.9'
+services:
+  node_bullseye:
+    build:
+      context: ./context
+      dockerfile: ../dockerfiles/bullseye.Dockerfile
+    ports:
+      - "3001:3000"
+  node_bullseye-slim:
+    build:
+      context: ./context
+      dockerfile: ../dockerfiles/bullseye-slim.Dockerfile
+    ports:
+      - "3002:3000"
+  node_alpine:
+    build:
+      context: ./context
+      dockerfile: ../dockerfiles/alpine.Dockerfile
+    ports:
+      - "3003:3000"
+  node_alpine-production:
+    build:
+      context: ./context
+      dockerfile: ../dockerfiles/production-alpine.Dockerfile
+    ports:
+      - "3004:3000"
+  node_alpine-production-multi_stage:
+    build:
+      context: ./context
+      dockerfile: ../dockerfiles/multi_stage-production-alpine.Dockerfile
+    ports:
+      - "3005:3000"
+  node_distroless_nodejs-production-multi_stage:
+    build:
+      context: ./context
+      dockerfile: ../dockerfiles/multi_stage-production-distroless_nodejs.Dockerfile
+    ports:
+      - "3006:3000"
+  node_distroless_nodejs-production-multi_stage-required:
+    build:
+      context: ./context
+      dockerfile: ../dockerfiles/multi_stage-production-distroless_nodejs-required.Dockerfile
+    ports:
+      - "3007:3000"
+  node_distroless_nodejs-production-multi_stage-required-pruned:
+    build:
+      context: ./context
+      dockerfile: ../dockerfiles/multi_stage-production-distroless_nodejs-required-pruned.Dockerfile
+    ports:
+      - "3008:3000"
